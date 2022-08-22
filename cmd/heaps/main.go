@@ -21,8 +21,8 @@ func (h *MaxHeap) Extract() int {
 		fmt.Println("Cannot extract because array length is 0")
 		return -1
 	}
-	h.array[0] = h.array[l]
-	h.array = h.array[:l]
+	h.array[0] = h.array[l] // reassign the index
+	h.array = h.array[:l]   // reduce the length of the array.
 
 	h.MaxHeapifyDown(0)
 
@@ -38,7 +38,7 @@ func (h *MaxHeap) MaxHeapifyDown(index int) {
 	for l <= lastIndex {
 		if l == lastIndex { // when the left child is the only child
 			childToCompare = l
-		} else if h.array[l] > h.array[l] { // when left child is larger
+		} else if h.array[l] > h.array[r] { // when left child is larger
 			childToCompare = l
 		} else { // when right child is larger
 			childToCompare = r
@@ -92,8 +92,9 @@ func main() {
 		m.Insert(v)
 		fmt.Println(m)
 	}
+	fmt.Println("start extracting")
 
-	for i := 0; i < 5; i++ {
+	for i := 0; i < len(buildHeap); i++ {
 		m.Extract()
 		fmt.Println(m)
 	}
