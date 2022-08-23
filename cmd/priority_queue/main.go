@@ -56,12 +56,14 @@ func (h *MaxHeap) MaxHeapifyDown(index int) {
 			childToCompare = l
 		} else {
 
-			ll := h.array[l]
-			rr := h.array[r]
+			leftChild := h.array[l]
+			rightChild := h.array[r]
 
-			if ll.Priority > rr.Priority { //else if h.array[l] > h.array[r] { // when left child is larger
+			if leftChild.Priority > rightChild.Priority {
+				// when left child is larger
 				childToCompare = l
-			} else { // when right child is larger
+			} else {
+				// when right child is larger
 				childToCompare = r
 			}
 		}
