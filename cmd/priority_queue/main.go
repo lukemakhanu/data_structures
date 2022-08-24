@@ -16,11 +16,6 @@ type BetDetails struct {
 	BetAmount float32
 }
 
-// MaxHeap1 : struct has a slice that holds an array
-type MaxHeap1 struct {
-	array []int
-}
-
 // Insert adds data to the heap
 func (h *MaxHeap) Insert(key BetDetails) {
 	//h.array = append(h.array, key)
