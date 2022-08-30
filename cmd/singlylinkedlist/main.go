@@ -42,13 +42,18 @@ func (l *linkedList) delete(value int) {
 		return
 	}
 	previousToDelete := l.head
+	fmt.Println("previousToDelete start :", previousToDelete)
+	fmt.Println("lets see the data :", previousToDelete.next.data)
 	for previousToDelete.next.data != value {
+		fmt.Println("previousToDelete.next.data :", previousToDelete.next.data, "value ::", value)
 		if previousToDelete.next.next == nil {
 			return
 		}
 		previousToDelete = previousToDelete.next
+		fmt.Println("reassigned previousToDelete ===> ", previousToDelete)
 	}
 	previousToDelete.next = previousToDelete.next.next
+	fmt.Println("last previousToDelete.next", previousToDelete.next)
 	l.length--
 }
 
@@ -72,8 +77,9 @@ func main() {
 	mylist.prepend(node7)
 	mylist.prepend(node8)
 
-	mylist.delete(100)
-	mylist.delete(59)
+	//mylist.delete(100)
+	mylist.PrintData()
+	mylist.delete(49)
 	emptyList := linkedList{}
 	emptyList.delete(10)
 	mylist.PrintData()
